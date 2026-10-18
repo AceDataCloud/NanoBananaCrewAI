@@ -1,0 +1,23 @@
+{
+  "repo": "NanoBananaCrewAI",
+  "slug": "nano-banana",
+  "package": "crewai-nano-banana",
+  "module": "nano_banana_crewai",
+  "generate_class": "NanoBananaGenerateImageTool",
+  "retrieve_class": "NanoBananaRetrieveTaskTool",
+  "media": "image",
+  "generation_path": "/nano-banana/images",
+  "task_path": "/nano-banana/tasks",
+  "dify_repo": "NanoBananaDify",
+  "dify_sha": "2703b3ee5cdc293751a15189ed24a0eb94dc3f43",
+  "contract_key": "nano_banana_generate_image",
+  "example_model": "nano-banana-2-lite",
+  "example_input": {
+    "model": "nano-banana-2-lite",
+    "prompt": "A red apple on a plain white background",
+    "aspect_ratio": "1:1",
+    "resolution": "1K",
+    "count": 1
+  },
+  "name": "Nano Banana"
+}
