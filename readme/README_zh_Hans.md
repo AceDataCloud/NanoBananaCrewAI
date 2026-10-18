@@ -4,7 +4,7 @@
 
 ## 安装
 
-已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/NanoBananaCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.2)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/NanoBananaCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
 uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@04e62e868359998f6657fea60e194af0132256f0'
@@ -14,10 +14,10 @@ uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewA
 
 
 ```bash
-uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.1/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=19cc2826cc939e602a86c994fe231d3a95761b34dbc5b8abead79ec00f04333c'
+uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.2/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=880d568dabce93958ef264edbb604140369313db27d435026d03094813c1cbf3'
 ```
 
-历史preview.1 wheel来自原源码230029c59a3816be7db4a6ff64d84dd3c570df26，上方推荐源码为含终态修复的新SHA04e62e868359998f6657fea60e194af0132256f0，二者分别记录，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
+修复版preview.2 wheel与上方固定源码来自同一终态修复SHA 04e62e868359998f6657fea60e194af0132256f0，历史preview.1保留不变，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
@@ -110,4 +110,4 @@ uv run python examples/query_existing.py YOUR_EXISTING_TASK_ID
 
 开发：uv sync --group dev；uv run pytest；uv run ruff check .；uv build。测试Mock收费HTTP，真实Agent/Task/Crew使用本地确定性模型，不冒充真实AI决策。合同固定来源见tests/contract-source.json。
 
-最新固定源码已修正finished_at写入前的明确失败判断；旧preview.1作为历史不变附件保留，建议用当前固定源码取得修复。
+当前固定源码及preview.2均已修正finished_at写入前的明确失败判断；旧preview.1保留不变，请使用上方固定修复版。
