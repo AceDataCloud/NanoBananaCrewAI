@@ -7,7 +7,7 @@
 已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/NanoBananaCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
-uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@230029c59a3816be7db4a6ff64d84dd3c570df26'
+uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@04e62e868359998f6657fea60e194af0132256f0'
 ```
 
 正式PyPI发布后目标为 `uv add crewai-nano-banana`，目前不要假设可用。Python3.10–3.13；Intel macOS可能缺CrewAI强制依赖lancedb wheel，正式使用选择受支持Linux，不跳依赖伪装正常安装。
@@ -17,7 +17,7 @@ uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewA
 uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.1/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=19cc2826cc939e602a86c994fe231d3a95761b34dbc5b8abead79ec00f04333c'
 ```
 
-预览wheel来自同一固定源码SHA，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
+历史preview.1 wheel来自原源码230029c59a3816be7db4a6ff64d84dd3c570df26，上方推荐源码为含终态修复的新SHA04e62e868359998f6657fea60e194af0132256f0，二者分别记录，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
@@ -109,3 +109,5 @@ uv run python examples/query_existing.py YOUR_EXISTING_TASK_ID
 代码免费，媒体与配置的LLM按当前价格计费；无支付处理器/自动收费重试/fallback。原Credits费用按当前应用套餐折扣，不硬编码旧美元换算。不把安装/测试数当注册或收入。prompt/参考素材与Token仅发往api.acedata.cloud；本包无追踪，CrewAI/LLM设置另算。[隐私](../PRIVACY.md) · [源码](https://github.com/AceDataCloud/NanoBananaCrewAI) · [反馈](https://github.com/AceDataCloud/NanoBananaCrewAI/issues) · dev@acedata.cloud
 
 开发：uv sync --group dev；uv run pytest；uv run ruff check .；uv build。测试Mock收费HTTP，真实Agent/Task/Crew使用本地确定性模型，不冒充真实AI决策。合同固定来源见tests/contract-source.json。
+
+最新固定源码已修正finished_at写入前的明确失败判断；旧preview.1作为历史不变附件保留，建议用当前固定源码取得修复。

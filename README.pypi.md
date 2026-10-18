@@ -6,10 +6,10 @@ Independent native **Nano Banana** image tools for CrewAI. Provided by **Ace Dat
 
 ## 1. Install the correct service package
 
-Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `230029c59a3816be7db4a6ff64d84dd3c570df26`. Do not treat a repository as an official listing.
+Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `04e62e868359998f6657fea60e194af0132256f0`. Do not treat a repository as an official listing.
 
 ```bash
-uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@230029c59a3816be7db4a6ff64d84dd3c570df26'
+uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@04e62e868359998f6657fea60e194af0132256f0'
 ```
 
 The pinned SHA is the version published in the review preview; inspect [source PR #1](https://github.com/AceDataCloud/NanoBananaCrewAI/pull/1) before adoption. After verified PyPI publication the standard command will be `uv add crewai-nano-banana`; do not assume it works before publication. CrewAI supports Python 3.10–3.13. Intel macOS may lack its mandatory lancedb wheel; use supported Linux rather than bypassing dependencies for production.
@@ -19,7 +19,7 @@ The pinned SHA is the version published in the review preview; inspect [source P
 uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.1/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=19cc2826cc939e602a86c994fe231d3a95761b34dbc5b8abead79ec00f04333c'
 ```
 
-The preview wheel was built from the same pinned source SHA. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
+The immutable preview.1 wheel was built from original source `230029c59a3816be7db4a6ff64d84dd3c570df26`. The recommended source install above points to the newer terminal-state fix `04e62e868359998f6657fea60e194af0132256f0`; these are separate artifacts. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
 
 ## 2. Register / sign in and get your own API Token
 
@@ -114,3 +114,5 @@ The code is free; media generation and the LLM you configure have their current 
 Provided prompts/references and the consumer Token are sent to `api.acedata.cloud` over HTTPS. The package adds no telemetry or tracing; CrewAI/your LLM may have separate settings. [Privacy](https://github.com/AceDataCloud/NanoBananaCrewAI/blob/main/PRIVACY.md). [Source](https://github.com/AceDataCloud/NanoBananaCrewAI) · [Issues](https://github.com/AceDataCloud/NanoBananaCrewAI/issues) · dev@acedata.cloud
 
 Development: `uv sync --group dev`, `uv run pytest`, `uv run ruff check .`, `uv build`. Paid HTTP is mocked in tests; native Agent/Task/Crew cycles use a deterministic local model fixture. See `tests/contract-source.json` for immutable service contract provenance and `tests/live-readonly-evidence.json` when an old-task check is available. No new paid request runs in CI.
+
+Latest source includes explicit failed-state handling before finished_at; older preview.1 is retained as an immutable historical artifact. Prefer the pinned current source for this fix.
