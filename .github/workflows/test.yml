@@ -22,3 +22,8 @@ jobs:
           uv venv /tmp/service-wheel --python ${{ matrix.python }}
           uv pip install --python /tmp/service-wheel/bin/python dist/crewai_nano_banana-0.1.0-py3-none-any.whl
           /tmp/service-wheel/bin/python -c 'from nano_banana_crewai import NanoBananaGenerateImageTool, NanoBananaRetrieveTaskTool; t = NanoBananaRetrieveTaskTool(api_key="fixture"); assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("clean wheel import and schema passed")'
+      - name: Install and inspect public stable wheel
+        run: |
+          uv venv /tmp/public-service-wheel --python ${{ matrix.python }}
+          uv pip install --python /tmp/public-service-wheel/bin/python 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=fac794b45811fe3aa2b4ec64f3c10694b96aa31fc1ed40f9b581d0921adb14f9'
+          /tmp/public-service-wheel/bin/python -c 'from nano_banana_crewai import NanoBananaRetrieveTaskTool; from importlib.metadata import version; t=NanoBananaRetrieveTaskTool(api_key="fixture"); assert version("crewai-nano-banana")=="0.1.0"; assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("public stable wheel full-install verified")'
