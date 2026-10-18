@@ -4,13 +4,20 @@
 
 ## 安装
 
-源码/预览包正在准备，尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/NanoBananaCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/NanoBananaCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
-uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@REVIEWED_COMMIT'
+uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@230029c59a3816be7db4a6ff64d84dd3c570df26'
 ```
 
 正式PyPI发布后目标为 `uv add crewai-nano-banana`，目前不要假设可用。Python3.10–3.13；Intel macOS可能缺CrewAI强制依赖lancedb wheel，正式使用选择受支持Linux，不跳依赖伪装正常安装。
+
+
+```bash
+uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.1/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=19cc2826cc939e602a86c994fe231d3a95761b34dbc5b8abead79ec00f04333c'
+```
+
+预览wheel来自同一固定源码SHA，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 

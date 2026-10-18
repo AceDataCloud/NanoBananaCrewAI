@@ -6,13 +6,20 @@ Independent native **Nano Banana** image tools for CrewAI. Provided by **Ace Dat
 
 ## 1. Install the correct service package
 
-Review-preview source and wheels are being prepared. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source PR/release links below will name the exact reviewed version. Do not treat a repository as an official listing.
+Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/NanoBananaCrewAI/releases/tag/v0.1.0-preview.1) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `230029c59a3816be7db4a6ff64d84dd3c570df26`. Do not treat a repository as an official listing.
 
 ```bash
-uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@REVIEWED_COMMIT'
+uv add 'crewai-nano-banana @ git+https://github.com/AceDataCloud/NanoBananaCrewAI.git@230029c59a3816be7db4a6ff64d84dd3c570df26'
 ```
 
-Replace REVIEWED_COMMIT with the full implementation commit SHA from this repository's reviewed PR. After verified PyPI publication the standard command will be `uv add crewai-nano-banana`; do not assume it works before publication. CrewAI supports Python 3.10–3.13. Intel macOS may lack its mandatory lancedb wheel; use supported Linux rather than bypassing dependencies for production.
+The pinned SHA is the version published in the review preview; inspect [source PR #1](https://github.com/AceDataCloud/NanoBananaCrewAI/pull/1) before adoption. After verified PyPI publication the standard command will be `uv add crewai-nano-banana`; do not assume it works before publication. CrewAI supports Python 3.10–3.13. Intel macOS may lack its mandatory lancedb wheel; use supported Linux rather than bypassing dependencies for production.
+
+
+```bash
+uv add 'crewai-nano-banana @ https://github.com/AceDataCloud/NanoBananaCrewAI/releases/download/v0.1.0-preview.1/crewai_nano_banana-0.1.0-py3-none-any.whl#sha256=19cc2826cc939e602a86c994fe231d3a95761b34dbc5b8abead79ec00f04333c'
+```
+
+The preview wheel was built from the same pinned source SHA. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
 
 ## 2. Register / sign in and get your own API Token
 
